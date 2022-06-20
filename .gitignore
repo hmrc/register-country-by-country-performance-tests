@@ -11,6 +11,7 @@ logs
 
 # IDE files
 /.idea
+/.bsp
 /*.iml
 /*.ipr
 *.iws
