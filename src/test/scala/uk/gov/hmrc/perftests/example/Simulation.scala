@@ -26,5 +26,16 @@ class Simulation extends PerformanceTestRunner {
     postAuthLoginPage
   )
 
+  setup("BusinessWithoutId", "Business without Id Journey") withRequests(
+    getHaveUTRPage,
+    postHaveUTRPageNo,
+    getBusinessNamePage,
+    postBusinessNamePage,
+    getHaveTradeName,
+    postHaveTradeName
+  )
+
+
+
   runSimulation()
 }

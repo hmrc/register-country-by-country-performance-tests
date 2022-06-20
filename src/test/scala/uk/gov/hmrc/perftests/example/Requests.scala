@@ -48,4 +48,53 @@ object Requests extends ServicesConfiguration {
       .check(header("Location").is(baseUrl + route + "/register/have-utr").saveAs("HaveUTRPage"))
   }
 
+  val getHaveUTRPage: HttpRequestBuilder = {
+    http("Get Have UTR Page")
+      .get("${HaveUTRPage}")
+      .check(status.is(200))
+      .check(css(inputSelectorByName("csrfToken"), "value").saveAs("csrfToken"))
+  }
+
+  val postHaveUTRPageNo: HttpRequestBuilder = {
+    http("post Have UTR Page-No")
+      .post("${HaveUTRPage}")
+      .formParam("csrfToken", "${csrfToken}")
+      .formParam("value", "false")
+      .check(status.is(303))
+      .check(header("Location").is(route + "/register/without-id/business-name").saveAs("withoutIdNamePage"))
+
+  }
+  val getBusinessNamePage: HttpRequestBuilder = {
+    http("Get Business Name Page without Id")
+      .get(baseUrl + "${withoutIdNamePage}")
+      .check(status.is(200))
+      .check(css(inputSelectorByName("csrfToken"), "value").saveAs("csrfToken"))
+  }
+
+  val postBusinessNamePage: HttpRequestBuilder = {
+    http("post Business name without id")
+      .post(baseUrl + "${withoutIdNamePage}")
+      .formParam("csrfToken", "${csrfToken}")
+      .formParam("value", "test")
+      .check(status.is(303))
+      .check(header("Location").is(route + "/register/without-id/have-trading-name").saveAs("HaveTradeName"))
+  }
+
+  val getHaveTradeName: HttpRequestBuilder = {
+    http("Get Have Trade name page")
+      .get(baseUrl + "${HaveTradeName}")
+      .check(status.is(200))
+      .check(css(inputSelectorByName("csrfToken"), "value").saveAs("csrfToken"))
+  }
+
+  val postHaveTradeName: HttpRequestBuilder = {
+    http("post Trade name")
+      .post(baseUrl + "${HaveTradeName}")
+      .formParam("csrfToken", "${csrfToken}")
+      .formParam("value", "true")
+      .check(status.is(303))
+      .check(header("Location").is(route + "/register/without-id/trading-name").saveAs("TradingName"))
+  }
+
+
 }
