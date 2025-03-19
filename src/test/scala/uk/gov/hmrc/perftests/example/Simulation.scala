@@ -21,100 +21,106 @@ import uk.gov.hmrc.perftests.example.Requests._
 
 class Simulation extends PerformanceTestRunner {
 
-  setup("AuthLogin", "logging in via auth") withRequests(
+  setup("AuthLogin", "logging in via auth") .withRequests(
     getAuthLoginPage,
     postAuthLoginPage
   )
 
-  setup("BusinessWithoutId", "Business without Id Journey") withRequests(
-    getHaveUTRPage,
-    postHaveUTRPageNo,
-    getBusinessNamePage,
-    postBusinessNamePage,
-    getHaveTradeName,
-    postHaveTradeName,
-    getTradeName,
-    postTradeName,
-    getBusinessAddress,
-    postBusinessAddress,
+  setup("BusinessWithoutId", "Business without Id Journey") .withRequests(
+    getRegisteredAddressPage,
+    postRegisteredAddressPage,
+    getWithoutIdBusinessPage,
+    postWithoutIdBusinessPage,
+    getWithoutIdHaveTradeNamePage
+//    getWithoutIdBusinessPage,
+//    getHaveUTRPage,
+//    postHaveUTRPageNo,
+//    getBusinessNamePage,
+//    postBusinessNamePage,
+//    getHaveTradeName,
+//    postHaveTradeName,
+//    getTradeName,
+//    postTradeName,
+//    getBusinessAddress,
+//    postBusinessAddress,
   )
 
-  setup("ContactDetails", "Contact Details Journey") withRequests(
-    getYourContactDetails,
-    getContactName,
-    postContactName,
-    getEmail,
-    postEmail,
-    getHavePhone,
-    postHavePhone,
-    getPhone,
-    postPhone,
-    getSecondContact,
-    postSecondContact,
-    getSecondContactName,
-    postSecondContactName,
-    getSecondContactEmail,
-    postSecondContactEmail,
-    getSecondContactHavePhone,
-    postSecondContactHavePhone,
-    getSecondContactPhone,
-    postSecondContactPhone,
-    getCheckYourAnswers,
-    postCheckYourAnswers,
-    getConfirmationRegistrationPage
-  )
-
-  setup("BusinessWithIdLimitedCompany", "Business with ID- select Limited Company") withRequests(
-    getHaveUTRPage,
-    postHaveUTRPageYes,
-    getBusinessTypePage,
-    postBusinessTypeLimitedCompany,
-    getUTRPage,
-    postUTRPage,
-    getBusinessNamePageWithId,
-    postBusinessNamePageWithId,
-    getYourBusinessPage,
-    postYourBusinessPage
-  )
-
-  setup("BusinessWithIdPartnership", "Business with ID - select Partnership") withRequests(
-    getHaveUTRPage,
-    postHaveUTRPageYes,
-    getBusinessTypePage,
-    postBusinessTypePartnership,
-    getUTRPage,
-    postUTRPage,
-    getBusinessNamePageWithId,
-    postBusinessNamePageWithId,
-    getYourBusinessPage,
-    postYourBusinessPage
-  )
-
-  setup("BusinessWithIdLimitedPartnership", "Business with ID -  select Limited Partnership") withRequests(
-    getHaveUTRPage,
-    postHaveUTRPageYes,
-    getBusinessTypePage,
-    postBusinessTypeLimitedPartnership,
-    getUTRPage,
-    postUTRPage,
-    getBusinessNamePageWithId,
-    postBusinessNamePageWithId,
-    getYourBusinessPage,
-    postYourBusinessPage
-  )
-
-  setup("BusinessWithIdUnincorporatedAssociation", "Business with ID -  select Unincorporated Association") withRequests(
-    getHaveUTRPage,
-    postHaveUTRPageYes,
-    getBusinessTypePage,
-    postBusinessTypeUnincorporatedAssociation,
-    getUTRPage,
-    postUTRPage,
-    getBusinessNamePageWithId,
-    postBusinessNamePageWithId,
-    getYourBusinessPage,
-    postYourBusinessPage
-  )
+//  setup("ContactDetails", "Contact Details Journey") withRequests(
+//    getYourContactDetails,
+//    getContactName,
+//    postContactName,
+//    getEmail,
+//    postEmail,
+//    getHavePhone,
+//    postHavePhone,
+//    getPhone,
+//    postPhone,
+//    getSecondContact,
+//    postSecondContact,
+//    getSecondContactName,
+//    postSecondContactName,
+//    getSecondContactEmail,
+//    postSecondContactEmail,
+//    getSecondContactHavePhone,
+//    postSecondContactHavePhone,
+//    getSecondContactPhone,
+//    postSecondContactPhone,
+//    getCheckYourAnswers,
+//    postCheckYourAnswers,
+//    getConfirmationRegistrationPage
+//  )
+//
+//  setup("BusinessWithIdLimitedCompany", "Business with ID- select Limited Company") withRequests(
+//    getHaveUTRPage,
+//    postHaveUTRPageYes,
+//    getBusinessTypePage,
+//    postBusinessTypeLimitedCompany,
+//    getUTRPage,
+//    postUTRPage,
+//    getBusinessNamePageWithId,
+//    postBusinessNamePageWithId,
+//    getYourBusinessPage,
+//    postYourBusinessPage
+//  )
+//
+//  setup("BusinessWithIdPartnership", "Business with ID - select Partnership") withRequests(
+//    getHaveUTRPage,
+//    postHaveUTRPageYes,
+//    getBusinessTypePage,
+//    postBusinessTypePartnership,
+//    getUTRPage,
+//    postUTRPage,
+//    getBusinessNamePageWithId,
+//    postBusinessNamePageWithId,
+//    getYourBusinessPage,
+//    postYourBusinessPage
+//  )
+//
+//  setup("BusinessWithIdLimitedPartnership", "Business with ID -  select Limited Partnership") withRequests(
+//    getHaveUTRPage,
+//    postHaveUTRPageYes,
+//    getBusinessTypePage,
+//    postBusinessTypeLimitedPartnership,
+//    getUTRPage,
+//    postUTRPage,
+//    getBusinessNamePageWithId,
+//    postBusinessNamePageWithId,
+//    getYourBusinessPage,
+//    postYourBusinessPage
+//  )
+//
+//  setup("BusinessWithIdUnincorporatedAssociation", "Business with ID -  select Unincorporated Association") withRequests(
+//    getHaveUTRPage,
+//    postHaveUTRPageYes,
+//    getBusinessTypePage,
+//    postBusinessTypeUnincorporatedAssociation,
+//    getUTRPage,
+//    postUTRPage,
+//    getBusinessNamePageWithId,
+//    postBusinessNamePageWithId,
+//    getYourBusinessPage,
+//    postYourBusinessPage
+//  )
 
 
   runSimulation()
