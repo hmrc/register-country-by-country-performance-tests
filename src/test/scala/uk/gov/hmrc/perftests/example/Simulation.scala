@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,12 +21,14 @@ import uk.gov.hmrc.perftests.example.Requests._
 
 class Simulation extends PerformanceTestRunner {
 
-  setup("AuthLogin", "logging in via auth") withRequests(
+  setup("AuthLogin", "logging in via auth") withRequests (
     getAuthLoginPage,
     postAuthLoginPage
   )
 
-  setup("BusinessWithoutId", "Business without Id Journey") withRequests(
+  setup("BusinessWithoutId", "Business without Id Journey") withRequests (
+    getRegisteredAddressInUkPage,
+    postRegisteredAddressInUkPageNo,
     getHaveUTRPage,
     postHaveUTRPageNo,
     getBusinessNamePage,
@@ -39,7 +41,7 @@ class Simulation extends PerformanceTestRunner {
     postBusinessAddress,
   )
 
-  setup("ContactDetails", "Contact Details Journey") withRequests(
+  setup("ContactDetails", "Contact Details Journey") withRequests (
     getYourContactDetails,
     getContactName,
     postContactName,
@@ -64,7 +66,9 @@ class Simulation extends PerformanceTestRunner {
     getConfirmationRegistrationPage
   )
 
-  setup("BusinessWithIdLimitedCompany", "Business with ID- select Limited Company") withRequests(
+  setup("BusinessWithIdLimitedCompany", "Business with ID- select Limited Company") withRequests (
+    getRegisteredAddressInUkPage,
+    postRegisteredAddressInUkPageNo,
     getHaveUTRPage,
     postHaveUTRPageYes,
     getBusinessTypePage,
@@ -77,7 +81,9 @@ class Simulation extends PerformanceTestRunner {
     postYourBusinessPage
   )
 
-  setup("BusinessWithIdPartnership", "Business with ID - select Partnership") withRequests(
+  setup("BusinessWithIdPartnership", "Business with ID - select Partnership") withRequests (
+    getRegisteredAddressInUkPage,
+    postRegisteredAddressInUkPageNo,
     getHaveUTRPage,
     postHaveUTRPageYes,
     getBusinessTypePage,
@@ -90,7 +96,9 @@ class Simulation extends PerformanceTestRunner {
     postYourBusinessPage
   )
 
-  setup("BusinessWithIdLimitedPartnership", "Business with ID -  select Limited Partnership") withRequests(
+  setup("BusinessWithIdLimitedPartnership", "Business with ID -  select Limited Partnership") withRequests (
+    getRegisteredAddressInUkPage,
+    postRegisteredAddressInUkPageNo,
     getHaveUTRPage,
     postHaveUTRPageYes,
     getBusinessTypePage,
@@ -103,7 +111,12 @@ class Simulation extends PerformanceTestRunner {
     postYourBusinessPage
   )
 
-  setup("BusinessWithIdUnincorporatedAssociation", "Business with ID -  select Unincorporated Association") withRequests(
+  setup(
+    "BusinessWithIdUnincorporatedAssociation",
+    "Business with ID -  select Unincorporated Association"
+  ) withRequests (
+    getRegisteredAddressInUkPage,
+    postRegisteredAddressInUkPageNo,
     getHaveUTRPage,
     postHaveUTRPageYes,
     getBusinessTypePage,
@@ -115,7 +128,6 @@ class Simulation extends PerformanceTestRunner {
     getYourBusinessPage,
     postYourBusinessPage
   )
-
 
   runSimulation()
 }
