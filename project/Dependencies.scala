@@ -6,6 +6,6 @@ object Dependencies {
 
   val test = Seq(
     "com.typesafe" % "config"                  % "1.3.1" % Test,
-    "uk.gov.hmrc" %% "performance-test-runner" % "6.1.0" % Test
+    "uk.gov.hmrc" %% "performance-test-runner" % "6.2.0" % Test
   )
 }
