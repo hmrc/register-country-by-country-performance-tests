@@ -268,7 +268,7 @@ object Requests extends ServicesConfiguration {
       .formParam("csrfToken", "#{csrfToken}")
       .formParam("value", "1234567999")
       .check(status.is(303))
-      .check(header("Location").is(route + "/check-answers").saveAs("CheckYourAnswers"))
+      .check(header("Location").is(route + "/register/check-answers").saveAs("CheckYourAnswers"))
 
   val getCheckYourAnswers: HttpRequestBuilder =
     http("Get Check Your Answers")
