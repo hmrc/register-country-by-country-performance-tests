@@ -38,7 +38,7 @@ class Simulation extends PerformanceTestRunner {
     getTradeName,
     postTradeName,
     getBusinessAddress,
-    postBusinessAddress,
+    postBusinessAddress
   )
 
   setup("ContactDetails", "Contact Details Journey") withRequests (
